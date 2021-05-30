@@ -27,7 +27,7 @@ void loop() {
       timeNow = millis();
       if ( (timeNow - timeOfLastUpdate) > interval)
       {
-        if (color = 1) {
+        if (color == 1) {
          M5.dis.fillpix(0x000000);
          color = 0;               
         }
@@ -42,7 +42,7 @@ void loop() {
     case 2: //LED is blinking white 
       timeNow = millis();
       if ( (timeNow - timeOfLastUpdate) > interval) {
-        if (color = 2) {
+        if (color == 2) {
          M5.dis.fillpix(0x000000);
          color = 0;               
         }
