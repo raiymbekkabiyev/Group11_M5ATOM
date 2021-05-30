@@ -4,8 +4,8 @@
 const long interval = 1000; // interval of blinking
 
 void setup(){
-  M5.begin(true, false, true)
-  FastLED.setBrightness(BRIGHTNESS); setting constant brightness
+  M5.begin(true, false, true);
+  FastLED.setBrightness(BRIGHTNESS); //setting constant brightness
 }
 
 uint8_t FSM = 0;
