@@ -1,31 +1,32 @@
 #include "M5Atom.h"
 #include <FastLED.h>
 #define BRIGHTNESS 20 //constant value for brightness
-const long interval = 1000; // interval of blinking
+const long interval = 500; // interval of blinking
 //const int buttonpin = 39;
 
 void setup() {
   M5.begin(true, false, true);
   FastLED.setBrightness(BRIGHTNESS); //setting constant brightness
-
-  //pinMode(buttonpin, INPUT);
 }
 
 uint8_t FSM = 0;
+unsigned long timeNow;
+unsigned long timeOfLastUpdate;
+
 
 void loop() {
 
   switch (FSM) {
     case 0: // LED is black = off
-      M5.dis.drawpix(0, 0x000000);
+      M5.dis.fillpix(0, 0x000000);
       break;
       
     case 1: // LED is blinking Red
-      M5.dis.drawpix(0, 0xFF0000);
+      M5.dis.fillpix(0, 0x00ff00);
       break;
       
     case 2: //LED is blinkind White 
-      M5.dis.drawpix(0, 0xFFFFFF);
+      M5.dis.fillpix(0, 0xffffff);
       break;
 
   }
