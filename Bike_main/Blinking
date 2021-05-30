@@ -12,7 +12,7 @@ void setup() {
 uint8_t FSM = 0;
 unsigned long timeNow;
 unsigned long timeOfLastUpdate;
-string color;
+int color;  //0 for black, 1 for red, 2 for white
 
 
 void loop() {
@@ -20,24 +20,21 @@ void loop() {
   switch (FSM) {
     case 0: // LED is black (off)
       M5.dis.fillpix(0, 0x000000);
-      color = black;
+      color = 0;
       break;
       
     case 1: // LED is blinking red
-      
       timeNow = millis();
       if ( (timeNow - timeOfLastUpdate) > interval)
       {
       
-        if (color = red)
-        {
+        if (color = 1) {
          M5.dis.fillpix(0, 0x000000);
-         color = black;               
+         color = 0;               
         }
-        else
-        {
+        else {
           M5.dis.fillpix(0, 0x00ff00);
-          color = red;
+          color = 1;
         }
         
         M5.update()
@@ -48,18 +45,15 @@ void loop() {
       
     case 2: //LED is blinking white 
       timeNow = millis();
-      if ( (timeNow - timeOfLastUpdate) > interval)
-      {
-      
-        if (color = red)
-        {
+      if ( (timeNow - timeOfLastUpdate) > interval) {
+   
+        if (color = 2) {
          M5.dis.fillpix(0, 0x000000);
-         color = black;               
+         color = 0;               
         }
-        else
-        {
-          M5.dis.fillpix(0, 0x00ff00);
-          color = red;
+        else {
+          M5.dis.fillpix(0, 0xffffff);
+          color = 2;
         }
         
         M5.update()
@@ -76,12 +70,8 @@ void loop() {
   if (M5.Btn.wasPressed()) {
     FSM++;
     if (FSM > 2)
-    {
       FSM = 0;
-    }
   }
-  
-  
   
   M5.update();
 }
