@@ -1,6 +1,6 @@
 #include "M5Atom.h"
 #include <FastLED.h>
-#define BRIGHTNESS 30 //constant value for brightness
+#define BRIGHTNESS 20 //constant value for brightness
 //const long interval = 1000; // interval of blinking
 //const int buttonpin = 39;
 
