@@ -54,6 +54,14 @@ void loop() {
       }
       break;
       
+    case 3: //Rear braking (flash red) 
+      M5.dis.fillpix(00ff00);
+      break;
+      
+    case 4: //Front braking (flash white)
+      M5.dis.fillpix(ffffff);
+      break;
+      
     default:
       break;
 
